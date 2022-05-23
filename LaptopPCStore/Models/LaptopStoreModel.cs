@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LaptopPCStore.Models
 {
-        //add-migration -Context LaptopStoreContext
+        //add-migration -Context LaptopStoreContext frist
         //update-database -Context LaptopStoreContext
    
         public class Laptop                     //USE PROP to generate 
@@ -77,6 +77,7 @@ namespace LaptopPCStore.Models
             public string userID { get; set; } //httpcontext.current.user.identity.name
 
             [ForeignKey("fk6")]
+            [Display(Name = "Laptop")]
             public int lap_id { get; set; }
             public Laptop fk6 { get; set; }
 

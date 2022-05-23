@@ -1,0 +1,89 @@
+﻿@model IEnumerable<LaptopPCStore.Models.Laptop>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_cat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_ram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_cpu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_gpu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_disp_size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_disp_res)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_disp_rr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_battrey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lap_storage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_cat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_ram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_cpu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_gpu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_disp_size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_disp_res)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_disp_rr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_battrey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lap_storage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.lap_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.lap_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.lap_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
