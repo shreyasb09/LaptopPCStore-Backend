@@ -48,8 +48,8 @@ namespace LaptopPCStore.Controllers
         // GET: Purchases/Create
         public IActionResult Create()
         {
-            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_id");
-            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_id");
+            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_name");
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name");
             return View();
         }
 
@@ -84,8 +84,8 @@ namespace LaptopPCStore.Controllers
             {
                 return NotFound();
             }
-            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_id", purchase.ven_id);
-            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_id", purchase.lap_id);
+            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_name", purchase.ven_id);
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", purchase.lap_id);
             return View(purchase);
         }
 

@@ -81,7 +81,7 @@ namespace LaptopPCStore.Controllers
             {
                 return NotFound();
             }
-            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_id", invoice.lap_id);
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", invoice.lap_id);
             return View(invoice);
         }
 

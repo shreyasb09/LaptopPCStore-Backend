@@ -45,10 +45,12 @@ namespace LaptopPCStore.Models
             public int purchase_id { get; set; }
 
             [ForeignKey("fk2")]
+            [Display(Name = "Vendor Name")]
             public int? ven_id { get; set; }
             public Vendor fk2 { get; set; }
 
             [ForeignKey("fk3")]
+            [Display(Name = "Laptop Name")]
             public int? lap_id { get; set; }
             public Laptop fk3 { get; set; }
 
@@ -60,10 +62,12 @@ namespace LaptopPCStore.Models
         public class Inventory 
         {
             [Key]
-            public int id { get; set; }
+            public int inv_id { get; set; }
 
             [ForeignKey("fk4")]
+            [Display(Name ="Laptop Name")]
             public int? lap_id { get; set; }
+
             public Laptop fk4;
 
             public int quantity { get; set; }
@@ -77,7 +81,7 @@ namespace LaptopPCStore.Models
             public string userID { get; set; } //httpcontext.current.user.identity.name
 
             [ForeignKey("fk6")]
-            [Display(Name = "Laptop")]
+            [Display(Name = "Laptop Name")]
             public int lap_id { get; set; }
             public Laptop fk6 { get; set; }
 
