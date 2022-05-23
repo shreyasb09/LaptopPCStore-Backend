@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace LaptopPCStore.Models
 {
-    //add-migration -Context LaptopStoreContext
-    //update-database -Context LaptopStoreContext
+        //add-migration -Context LaptopStoreContext
+        //update-database -Context LaptopStoreContext
    
         public class Laptop                     //USE PROP to generate 
         {
@@ -25,7 +25,7 @@ namespace LaptopPCStore.Models
             public string lap_disp_rr { get; set; }
             public string lap_battrey { get; set; }
             public string lap_storage { get; set; }
-            public int lap_quantity { get; set; }
+            //public int lap_quantity { get; set; }
         }
 
         public class Vendor
@@ -56,9 +56,44 @@ namespace LaptopPCStore.Models
             public DateTime purchase_date { get; set; }
             public int purchase_cost { get; set; }
         }
+
+        public class Inventory 
+        {
+            [Key]
+            public int id { get; set; }
+
+            [ForeignKey("fk4")]
+            public int? lap_id { get; set; }
+            public Laptop fk4;
+
+            public int quantity { get; set; }
+
+        }
+        
+        public class Invoice
+        {
+            [Key]
+            public int invoice_id { get; set; }
+
+            //[ForeignKey("fk5")]
+            //public int emp_id { get; set; }
+            //public aspnetusers fk5;
+
+        [ForeignKey("fk6")]
+            public int lap_id { get; set; }
+            public Laptop fk6 { get; set; }
+
+            public int quantity { get; set; }
+
+            public string inv_name { get; set; }
+            public int inv_phone { get; set; }
+            public string inv_mail { get; set; }
+            public string inv_address { get; set; }
+        }
+
         public class LaptopStoreContext : DbContext
         {
-            //ctor for constructro
+            //ctor for constructors
 
 
             public LaptopStoreContext(DbContextOptions<LaptopStoreContext> options):base(options)
@@ -68,6 +103,8 @@ namespace LaptopPCStore.Models
             public DbSet<Laptop> laptops { get; set; }
             public DbSet<Vendor> vendors { get; set; }
             public DbSet<Purchase> purchases { get; set; }
+            public DbSet<Invoice> invoices { get; set; }
+            public DbSet<Inventory> inventories { get; set; }
         }
        
     
