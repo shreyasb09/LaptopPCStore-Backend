@@ -74,12 +74,9 @@ namespace LaptopPCStore.Models
         {
             [Key]
             public int invoice_id { get; set; }
+            public string userID { get; set; } //httpcontext.current.user.identity.name
 
-            //[ForeignKey("fk5")]
-            //public int emp_id { get; set; }
-            //public aspnetusers fk5;
-
-        [ForeignKey("fk6")]
+            [ForeignKey("fk6")]
             public int lap_id { get; set; }
             public Laptop fk6 { get; set; }
 
