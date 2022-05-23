@@ -8,7 +8,67 @@
 
 <h4>Purchase</h4>
 <hr />
-<div class="row">
+<script src="~/js/datetime.js"></script>
+<section class="py-5 mt-5">
+    <div class="container py-2">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <p class="fw-bold text-success mb-2">Add</p>
+                <h2 class="fw-bold">New Purchase</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-xl-8">
+                <div>
+                    <form class="p-3 p-xl-4" method="post">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="lap_id" class="control-label"></label>
+                                    <select asp-for="lap_id" placeholder="Laptop" class="form-control" asp-items="ViewBag.lap_id"></select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="ven_id" class="control-label"></label>
+                                    <select asp-for="ven_id" placeholder="Vendor" class="form-control" asp-items="ViewBag.ven_id"></select>
+                                </div>
+                            </div>
+                            @*<div class="col-lg-12">
+                                <div class="mb-3"><input class="form-control" type="text" id="ven_name" name="ven_name" placeholder="Vendor Name"></div>
+                            </div>*@
+                        </div>
+                        <div class="row">
+                            @*<div class="col-lg-6">
+                                <div class="mb-3"><input class="form-control" type="text" id="lap_name" name="lap_name" placeholder="Laptop Name"></div>
+                            </div>*@
+
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-lg-3"><input class="form-control" type="text" id="lap_quantity_number" name="lap_quantity_number" placeholder="Quantity" min="1" max="20" step="1" oninput="this.form.lap_quantity_range.value=this.value"></div>
+                                        <div class="col-lg-9 d-xl-flex align-items-xl-center"><input class="form-range form-control" type="range" id="lap_quantity_range" name="lap_quantity_range" placeholder="Vendor Email" min="1" max="20" step="1" oninput="this.form.lap_quantity_number.value=this.value" value="1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3"><input class="form-control" type="text" id="purchase_date" name="purchase_date" placeholder="Purchase Date"></div>
+                                @*<div class="mb-3"><input class="form-control" type="datetime-local" id="purchase_date" name="purchase_date" placeholder="Purchase Date"></div>*@
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3"><input class="form-control" type="number" id="purchase_cost" name="purchase_cost" placeholder="Purchase Cost"></div>
+                            </div>
+                        </div>
+                        <div><button class="btn btn-primary shadow d-block w-100" type="submit">Add Purchase</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -40,7 +100,7 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>
