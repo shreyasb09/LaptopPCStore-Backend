@@ -82,9 +82,9 @@ namespace LaptopPCStore.Models
 
         public class Inventory
         {
+            //[Key]
+            //public int inv_id { get; set; }
             [Key]
-            public int inv_id { get; set; }
-
             [ForeignKey("fk4")]
             [Display(Name = "Laptop Name")]
             public int lap_id { get; set; }

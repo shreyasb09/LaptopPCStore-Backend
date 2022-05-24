@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<LaptopPCStore.Models.Inventory>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inventory Index";
 }
 
-<h1>Index</h1>
+<h1>Inventory Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -22,20 +22,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.fk4.lap_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.quantity)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.inv_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.inv_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.inv_id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fk4.lap_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.lap_id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.lap_id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.lap_id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

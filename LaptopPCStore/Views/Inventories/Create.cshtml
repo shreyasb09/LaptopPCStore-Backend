@@ -27,15 +27,15 @@
                                 </div>
 
                             </div>
-                            </div>
-                       <div class="row">
-                           
-                               <div class="col-lg-6 mb-3"><input required min="1" class="form-control" asp-for="quantity" type="number" id="quantity" name="quantity" placeholder="Inventory Quantity" step="1" oninput="this.form.pur_quantity_range.value=this.value"></div>
-                               <div class="col-lg-6 mb-3 d-xl-flex align-items-xl-center"><input class="form-range form-control" type="range" id="pur_quantity_range" name="pur_quantity_range" placeholder="Quantity" min="1" max="20" step="1" oninput="this.form.quantity.value=this.value" value="1"></div>
-                           
                         </div>
-                        
-                        
+                        <div class="row">
+
+                            <div class="col-lg-6 mb-3"><input required min="1" class="form-control" asp-for="quantity" type="number" id="quantity" name="quantity" placeholder="Inventory Quantity" step="1" oninput="this.form.pur_quantity_range.value=this.value"></div>
+                            <div class="col-lg-6 mb-3 d-xl-flex align-items-xl-center"><input class="form-range form-control" type="range" id="pur_quantity_range" name="pur_quantity_range" placeholder="Quantity" min="1" max="20" step="1" oninput="this.form.quantity.value=this.value" value="1"></div>
+
+                        </div>
+
+
                         <div><button class="btn btn-primary shadow d-block w-100" type="submit">Create Invoice</button></div>
                     </form>
                 </div>
@@ -45,25 +45,25 @@
 </section>
 
 @*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="lap_id" class="control-label"></label>
-                <select asp-for="lap_id" placeholder="Laptop" class="form-control" asp-items="ViewBag.lap_id"></select>
-                <span asp-validation-for="lap_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="quantity" class="control-label"></label>
-                <input asp-for="quantity" class="form-control" />
-                <span asp-validation-for="quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="lap_id" class="control-label"></label>
+                    <select asp-for="lap_id" placeholder="Laptop" class="form-control" asp-items="ViewBag.lap_id"></select>
+                    <span asp-validation-for="lap_id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="quantity" class="control-label"></label>
+                    <input asp-for="quantity" class="form-control" />
+                    <span asp-validation-for="quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>

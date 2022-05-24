@@ -35,7 +35,7 @@ namespace LaptopPCStore.Controllers
 
             var inventory = await _context.inventories
                 .Include(i => i.fk4)
-                .FirstOrDefaultAsync(m => m.inv_id == id);
+                .FirstOrDefaultAsync(m => m.lap_id == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -56,7 +56,7 @@ namespace LaptopPCStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("inv_id,lap_id,quantity")] Inventory inventory)
+        public async Task<IActionResult> Create([Bind("lap_id,quantity")] Inventory inventory)
         {
             if (ModelState.IsValid)
             {
@@ -90,9 +90,9 @@ namespace LaptopPCStore.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("inv_id,lap_id,quantity")] Inventory inventory)
+        public async Task<IActionResult> Edit(int id, [Bind("lap_id,quantity")] Inventory inventory)
         {
-            if (id != inventory.inv_id)
+            if (id != inventory.lap_id)
             {
                 return NotFound();
             }
@@ -106,7 +106,7 @@ namespace LaptopPCStore.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InventoryExists(inventory.inv_id))
+                    if (!InventoryExists(inventory.lap_id))
                     {
                         return NotFound();
                     }
@@ -131,7 +131,7 @@ namespace LaptopPCStore.Controllers
 
             var inventory = await _context.inventories
                 .Include(i => i.fk4)
-                .FirstOrDefaultAsync(m => m.inv_id == id);
+                .FirstOrDefaultAsync(m => m.lap_id == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -153,7 +153,7 @@ namespace LaptopPCStore.Controllers
 
         private bool InventoryExists(int id)
         {
-            return _context.inventories.Any(e => e.inv_id == id);
+            return _context.inventories.Any(e => e.lap_id == id);
         }
     }
 }
