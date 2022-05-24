@@ -74,7 +74,7 @@ namespace LaptopPCStore.Models
             public int quantity { get; set; }
 
             public string inv_name { get; set; }
-            public int inv_phone { get; set; }
+            public string inv_phone { get; set; }
             public string inv_mail { get; set; }
             public string inv_address { get; set; }
         }
