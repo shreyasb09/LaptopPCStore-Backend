@@ -61,7 +61,34 @@ namespace LaptopPCStore.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(invoice);
+                
                 await _context.SaveChangesAsync();
+                if (InventoryExists(invoice.lap_id))
+                {
+                    var inventories = _context.inventories.Find(invoice.lap_id);
+                    if (invoice.quantity > inventories.quantity) 
+                    {
+                        ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", invoice.lap_id);
+                        return View(invoice);
+                    } 
+                    inventories.quantity -= invoice.quantity;
+                    try
+                    {
+                        _context.Update(inventories);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!InventoryExists(inventories.lap_id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", invoice.lap_id);
@@ -154,6 +181,10 @@ namespace LaptopPCStore.Controllers
         private bool InvoiceExists(int id)
         {
             return _context.invoices.Any(e => e.invoice_id == id);
+        }
+        private bool InventoryExists(int id)
+        {
+            return _context.inventories.Any(e => e.lap_id == id);
         }
     }
 }
