@@ -25,13 +25,15 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label asp-for="lap_id" class="control-label"></label>
-                                    <select asp-for="lap_id" placeholder="Laptop" class="form-control" asp-items="ViewBag.lap_id"></select>
+                                    <select asp-for="lap_id" placeholder="Laptop" required class="form-control" asp-items="ViewBag.lap_id"></select>
+                                    <span asp-validation-for="lap_id" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label asp-for="ven_id" class="control-label"></label>
-                                    <select asp-for="ven_id" placeholder="Vendor" class="form-control" asp-items="ViewBag.ven_id"></select>
+                                    <select asp-for="ven_id" placeholder="Vendor" required class="form-control" asp-items="ViewBag.ven_id"></select>
+                                    <span asp-validation-for="ven_id" class="text-danger"></span>
                                 </div>
                             </div>
                             @*<div class="col-lg-12">
@@ -56,11 +58,11 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 @*<div class="mb-3"><input class="form-control" type="text" id="purchase_date" name="purchase_date" placeholder="Purchase Date"></div>*@
-                                <div class="mb-3"><input class="form-control" type="datetime-local" id="purchase_date" name="purchase_date" placeholder="Purchase Date"></div>
+                                <div class="mb-3"><input class="form-control" asp-for="purchase_date" type="datetime-local" id="purchase_date" name="purchase_date" placeholder="Purchase Date"></div>
                                 <span asp-validation-for="purchase_date" class="text-danger"></span>
                             </div>
                             <div class="col-lg-6">
-                                <div class="mb-3"><input class="form-control" type="number" id="purchase_cost" min="1" name="purchase_cost" placeholder="Purchase Cost"></div>
+                                <div class="mb-3"><input class="form-control" asp-for="purchase_cost" type="number" id="purchase_cost" min="1" name="purchase_cost" placeholder="Purchase Cost"></div>
                                 <span asp-validation-for="purchase_cost" class="text-danger"></span>
                             </div>
                         </div>

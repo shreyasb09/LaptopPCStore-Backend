@@ -24,7 +24,8 @@
                                 <form class="p-3 p-xl-4" method="post">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_name" name="lap_name" placeholder="Laptop Name"></div>
+                                            <div class="mb-3"><input class="form-control" required asp-for="lap_name" type="text" id="lap_name" name="lap_name" placeholder="Laptop Name"></div>
+                                            <span asp-validation-for="lap_name" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -40,50 +41,61 @@
                                                     <option value="Gaming">Gaming</option>
                                                     <option value="Notebook">Notebook</option>
                                                 </select>
+                                                <span asp-validation-for="lap_cat" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_ram" name="lap_ram" placeholder="RAM"></div>
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_ram" type="text" id="lap_ram" required name="lap_ram" placeholder="RAM"></div>
+                                            <span asp-validation-for="lap_ram" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_cpu" name="lap_cpu" placeholder="CPU"></div>
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_cpu" type="text" id="lap_cpu" name="lap_cpu" required placeholder="CPU"></div>
+                                            <span asp-validation-for="lap_cpu" class="text-danger"></span>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_gpu" name="lap_gpu" placeholder="GPU"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_disp_size" name="lap_disp_size" placeholder="Display Size"></div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_disp_res" name="lap_disp_res" placeholder="Display Resolution"></div>
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_gpu" type="text" id="lap_gpu" name="lap_gpu" required placeholder="GPU"></div>
+                                            <span asp-validation-for="lap_gpu" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_disp_rr" name="lap_disp_rr" placeholder="Refresh Rate"></div>
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_disp_size" type="text" id="lap_disp_size" name="lap_disp_size" required placeholder="Display Size"></div>
+                                            <span asp-validation-for="lap_disp_size" class="text-danger"></span>
                                         </div>
                                         <div class="col-lg-6">
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_disp_res" type="text" id="lap_disp_res" name="lap_disp_res" required placeholder="Display Resolution"></div>
+                                            <span asp-validation-for="lap_disp_res" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3"><input class="form-control" asp-for="lap_disp_rr" type="text" id="lap_disp_rr" name="lap_disp_rr" required placeholder="Refresh Rate"></div>
+                                            <span asp-validation-for="lap_disp_rr" class="text-danger"></span>
+                                        </div>
+                                        @*<div class="col-lg-6">
                                             <div class="mb-3"><input class="form-control" type="text" id="lap_gpu-1" name="lap_gpu" placeholder="GPU"></div>
-                                        </div>
+                                        </div>*@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3"><input asp-for="lap_battrey" class="form-control" type="text" id="lap_battrey" name="lap_battrey" placeholder="Battery"></div>
+                                            <span asp-validation-for="lap_battrey" class="text-danger"></span>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_quantity" name="lap_quantity" placeholder="Quantity"></div>
+                                            @*<div class="mb-3"><input class="form-control" type="text" id="lap_quantity" name="lap_quantity" placeholder="Quantity"></div>
+                                            <span asp-validation-for="lap_quantity" class="text-danger"></span>*@
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3"><input class="form-control" type="text" id="lap_storage" name="lap_storage" placeholder="Storage"></div>
+                                            <span asp-validation-for="lap_storage" class="text-danger"></span>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="mb-3"><input class="form-control" type="text" id="lap_price" name="lap_price" placeholder="Price"></div>
+                                            <div class="mb-3"><input class="form-control" type="text" id="lap_price" min="1" name="lap_price" placeholder="Price"></div>
+                                            
                                         </div>
                                     </div>
                                     <div class="row">
