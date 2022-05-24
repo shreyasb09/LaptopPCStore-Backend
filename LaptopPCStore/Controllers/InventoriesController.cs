@@ -21,7 +21,8 @@ namespace LaptopPCStore.Controllers
         // GET: Inventories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.inventories.ToListAsync());
+            var laptopStoreContext = _context.inventories.Include(i => i.fk4);
+            return View(await laptopStoreContext.ToListAsync());
         }
 
         // GET: Inventories/Details/5
@@ -33,6 +34,7 @@ namespace LaptopPCStore.Controllers
             }
 
             var inventory = await _context.inventories
+                .Include(i => i.fk4)
                 .FirstOrDefaultAsync(m => m.inv_id == id);
             if (inventory == null)
             {
@@ -45,6 +47,7 @@ namespace LaptopPCStore.Controllers
         // GET: Inventories/Create
         public IActionResult Create()
         {
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name");
             return View();
         }
 
@@ -61,6 +64,7 @@ namespace LaptopPCStore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", inventory.lap_id);
             return View(inventory);
         }
 
@@ -77,6 +81,7 @@ namespace LaptopPCStore.Controllers
             {
                 return NotFound();
             }
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", inventory.lap_id);
             return View(inventory);
         }
 
@@ -112,6 +117,7 @@ namespace LaptopPCStore.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", inventory.lap_id);
             return View(inventory);
         }
 
@@ -124,6 +130,7 @@ namespace LaptopPCStore.Controllers
             }
 
             var inventory = await _context.inventories
+                .Include(i => i.fk4)
                 .FirstOrDefaultAsync(m => m.inv_id == id);
             if (inventory == null)
             {

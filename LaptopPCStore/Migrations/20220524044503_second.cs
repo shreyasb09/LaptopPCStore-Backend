@@ -3,24 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LaptopPCStore.Migrations
 {
-    public partial class first : Migration
+    public partial class second : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "inventories",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    lap_id = table.Column<int>(type: "int", nullable: true),
-                    quantity = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_inventories", x => x.id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "laptops",
                 columns: table => new
@@ -57,6 +43,26 @@ namespace LaptopPCStore.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_vendors", x => x.ven_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "inventories",
+                columns: table => new
+                {
+                    inv_id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    lap_id = table.Column<int>(type: "int", nullable: false),
+                    quantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_inventories", x => x.inv_id);
+                    table.ForeignKey(
+                        name: "FK_inventories_laptops_lap_id",
+                        column: x => x.lap_id,
+                        principalTable: "laptops",
+                        principalColumn: "lap_id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -112,6 +118,11 @@ namespace LaptopPCStore.Migrations
                         principalColumn: "ven_id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_inventories_lap_id",
+                table: "inventories",
+                column: "lap_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_invoices_lap_id",

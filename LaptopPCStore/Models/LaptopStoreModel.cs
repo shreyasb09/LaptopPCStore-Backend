@@ -59,20 +59,6 @@ namespace LaptopPCStore.Models
             public int purchase_cost { get; set; }
         }
 
-        public class Inventory 
-        {
-            [Key]
-            public int inv_id { get; set; }
-
-            [ForeignKey("fk4")]
-            [Display(Name ="Laptop Name")]
-            public int? lap_id { get; set; }
-
-            public Laptop fk4;
-
-            public int quantity { get; set; }
-
-        }
         
         public class Invoice
         {
@@ -93,7 +79,22 @@ namespace LaptopPCStore.Models
             public string inv_address { get; set; }
         }
 
-        public class LaptopStoreContext : DbContext
+
+        public class Inventory
+        {
+            [Key]
+            public int inv_id { get; set; }
+
+            [ForeignKey("fk4")]
+            [Display(Name = "Laptop Name")]
+            public int lap_id { get; set; }
+            public Laptop fk4 { get; set; }
+
+            public int quantity { get; set; }
+
+        }
+
+    public class LaptopStoreContext : DbContext
         {
             //ctor for constructors
 

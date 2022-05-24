@@ -66,8 +66,8 @@ namespace LaptopPCStore.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_id", purchase.ven_id);
-            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_id", purchase.lap_id);
+            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_name", purchase.ven_id);
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", purchase.lap_id);
             return View(purchase);
         }
 
@@ -121,8 +121,8 @@ namespace LaptopPCStore.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_id", purchase.ven_id);
-            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_id", purchase.lap_id);
+            ViewData["ven_id"] = new SelectList(_context.vendors, "ven_id", "ven_name", purchase.ven_id);
+            ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", purchase.lap_id);
             return View(purchase);
         }
 

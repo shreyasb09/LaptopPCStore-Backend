@@ -26,13 +26,15 @@ namespace LaptopPCStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("lap_id")
+                    b.Property<int>("lap_id")
                         .HasColumnType("int");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int");
 
                     b.HasKey("inv_id");
+
+                    b.HasIndex("lap_id");
 
                     b.ToTable("inventories");
                 });
@@ -167,6 +169,17 @@ namespace LaptopPCStore.Migrations
                     b.HasKey("ven_id");
 
                     b.ToTable("vendors");
+                });
+
+            modelBuilder.Entity("LaptopPCStore.Models.Inventory", b =>
+                {
+                    b.HasOne("LaptopPCStore.Models.Laptop", "fk4")
+                        .WithMany()
+                        .HasForeignKey("lap_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("fk4");
                 });
 
             modelBuilder.Entity("LaptopPCStore.Models.Invoice", b =>

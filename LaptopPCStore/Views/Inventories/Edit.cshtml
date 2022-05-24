@@ -15,7 +15,7 @@
             <input type="hidden" asp-for="inv_id" />
             <div class="form-group">
                 <label asp-for="lap_id" class="control-label"></label>
-                <input asp-for="lap_id" class="form-control" />
+                <select asp-for="lap_id" placeholder="Laptop" class="form-control" asp-items="ViewBag.lap_id"></select>
                 <span asp-validation-for="lap_id" class="text-danger"></span>
             </div>
             <div class="form-group">

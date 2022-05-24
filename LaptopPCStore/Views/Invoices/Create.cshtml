@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="quantity" class="control-label"></label>
-                <input asp-for="quantity" class="form-control" />
+                <input min="1" asp-for="quantity" class="form-control" />
                 <span asp-validation-for="quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="inv_phone" class="control-label"></label>
-                <input asp-for="inv_phone" class="form-control" />
+                <input type="tel" asp-for="inv_phone" class="form-control" />
                 <span asp-validation-for="inv_phone" class="text-danger"></span>
             </div>
             <div class="form-group">
