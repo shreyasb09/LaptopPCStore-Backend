@@ -17,7 +17,7 @@ namespace LaptopPCStore.Models
             public int lap_id { get; set; }
             public string lap_name { get; set; }
             public string lap_cat { get; set; }
-            public int lap_ram { get; set; }
+            public string lap_ram { get; set; }
             public string lap_cpu { get; set; }
             public string lap_gpu { get; set; }
             public string lap_disp_size { get; set; }
