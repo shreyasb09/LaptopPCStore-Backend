@@ -70,15 +70,16 @@
                 <input asp-for="lap_storage" required class="form-control" />
                 <span asp-validation-for="lap_storage" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary mt-3" />
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-dark ms-2" asp-action="Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {

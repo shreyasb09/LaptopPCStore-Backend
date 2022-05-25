@@ -23,15 +23,16 @@
                 <input min="1" required asp-for="quantity" class="form-control" />
                 <span asp-validation-for="quantity" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-dark ms-2"  asp-action="Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {
