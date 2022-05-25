@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
-    <title>@ViewData["Title"] - LaptopPCStore</title>
+    <title>@ViewData["Title"] - LaptopPCStore Management System</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css">
@@ -26,27 +26,43 @@
                 </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Laptops" asp-action="Index">Products</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Vendors" asp-action="Index">Vendors</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Purchases" asp-action="Index">Purchases</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Invoices" asp-action="Index">Invoices</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Inventories" asp-action="Index">Inventories</a></li>
-                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-controller="Home" asp-action="Index">TBD</a></li>
-                        @*<li class="nav-item d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center px-2">
-                                <div class="nav-item dropdown">
-                                    <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Forms</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="add_new_product.html">Add New Product</a>
-                                        <a class="dropdown-item" href="add_new_vendor.html">Add New Vendor</a>
-                                        <a class="dropdown-item" href="add_new_purchase.html">Add New Purchase</a>
-                                    </div>
+                        @*<li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Laptops" asp-action="Index">Products</a></li>
+        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Vendors" asp-action="Index">Vendors</a></li>
+        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Purchases" asp-action="Index">Purchases</a></li>
+        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Invoices" asp-action="Index">Invoices</a></li>
+        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Inventories" asp-action="Index">Inventories</a></li>*@
+                        <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center px-2">
+                            <div class="nav-item dropdown">
+                                <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Add New </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Laptops" asp-action="Create"> Add New Product</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Vendors" asp-action="Create"> Add New Vendor</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Create">Add New Purchase</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Invoices" asp-action="Create">Add New Invoice</a>
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="Inventories" asp-action="Index">Add New Purchase</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Index">Add New Purchase</a>*@
                                 </div>
-                            </li>*@
+                            </div>
+                        </li>
+                        <li class="nav-item d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center px-2">
+                            <div class="nav-item dropdown">
+                                <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">View </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Laptops" asp-action="Index"> View Product</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Vendors" asp-action="Index"> View Vendor</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Index">View Purchase</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Invoices" asp-action="Index">View Invoice</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Inventories" asp-action="Index">View Inventory</a>
+                                    @*<a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Index">Add New Purchase</a>*@
+                                </div>
+                            </div>
+                        </li>
                         @*<li class="nav-item"></li>
-                            <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
-                            <li class="nav-item"><a class="nav-link" href="signup.html">Sign up</a></li>
-                            <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>*@
+        <li class="nav-item"><a class="nav-link" href="login.html">Log in</a></li>
+        <li class="nav-item"><a class="nav-link" href="signup.html">Sign up</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>*@
                     </ul>@*<a class="btn btn-primary shadow" role="button" href="signup.html">Sign up</a>*@
 
                     <partial name="_LoginPartial" />
