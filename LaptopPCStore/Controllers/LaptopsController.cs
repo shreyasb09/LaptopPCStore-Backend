@@ -59,6 +59,25 @@ namespace LaptopPCStore.Controllers
             {
                 _context.Add(laptop);
                 await _context.SaveChangesAsync();
+                if (!InventoryExists(laptop.lap_id))
+                {
+                    try
+                    {
+                        var inventories = new Inventory
+                        {
+                            lap_id = laptop.lap_id,
+                            quantity = 0
+                        };
+                        _context.inventories.Add(inventories);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+
+                        throw;
+
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(laptop);
@@ -147,6 +166,10 @@ namespace LaptopPCStore.Controllers
         private bool LaptopExists(int id)
         {
             return _context.laptops.Any(e => e.lap_id == id);
+        }
+        private bool InventoryExists(int id)
+        {
+            return _context.inventories.Any(e => e.lap_id == id);
         }
     }
 }
