@@ -15,56 +15,63 @@
             <input type="hidden" asp-for="lap_id" />
             <div class="form-group">
                 <label asp-for="lap_name" class="control-label"></label>
-                <input asp-for="lap_name" class="form-control" />
+                <input asp-for="lap_name" required class="form-control" />
                 <span asp-validation-for="lap_name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_cat" class="control-label"></label>
-                <input asp-for="lap_cat" class="form-control" />
+                <select id="lap_cat" required asp-for="lap_cat" name="lap_cat" class="form-control">
+                    <option value="MacBook">MacBook</option>
+                    <option value="Ultrabook">Ultrabook</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Notebook">Notebook</option>
+                </select>
                 <span asp-validation-for="lap_cat" class="text-danger"></span>
+                @*<input asp-for="lap_cat" required class="form-control" />
+        <span asp-validation-for="lap_cat" class="text-danger"></span>*@
             </div>
             <div class="form-group">
                 <label asp-for="lap_ram" class="control-label"></label>
-                <input asp-for="lap_ram" class="form-control" />
+                <input asp-for="lap_ram" required class="form-control" />
                 <span asp-validation-for="lap_ram" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_cpu" class="control-label"></label>
-                <input asp-for="lap_cpu" class="form-control" />
+                <input asp-for="lap_cpu" required class="form-control" />
                 <span asp-validation-for="lap_cpu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_gpu" class="control-label"></label>
-                <input asp-for="lap_gpu" class="form-control" />
+                <input asp-for="lap_gpu" required class="form-control" />
                 <span asp-validation-for="lap_gpu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_disp_size" class="control-label"></label>
-                <input asp-for="lap_disp_size" class="form-control" />
+                <input asp-for="lap_disp_size" required class="form-control" />
                 <span asp-validation-for="lap_disp_size" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_disp_res" class="control-label"></label>
-                <input asp-for="lap_disp_res" class="form-control" />
+                <input asp-for="lap_disp_res" required class="form-control" />
                 <span asp-validation-for="lap_disp_res" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_disp_rr" class="control-label"></label>
-                <input asp-for="lap_disp_rr" class="form-control" />
+                <input asp-for="lap_disp_rr" required class="form-control" />
                 <span asp-validation-for="lap_disp_rr" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_battrey" class="control-label"></label>
-                <input asp-for="lap_battrey" class="form-control" />
+                <input asp-for="lap_battrey" required class="form-control" />
                 <span asp-validation-for="lap_battrey" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="lap_storage" class="control-label"></label>
-                <input asp-for="lap_storage" class="form-control" />
+                <input asp-for="lap_storage" required class="form-control" />
                 <span asp-validation-for="lap_storage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary mt-3" />
             </div>
         </form>
     </div>
