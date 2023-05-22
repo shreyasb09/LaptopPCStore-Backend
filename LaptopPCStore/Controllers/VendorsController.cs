@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LaptopPCStore.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LaptopPCStore.Controllers
 {
+    [Authorize]
     public class VendorsController : Controller
     {
         private readonly LaptopStoreContext _context;
