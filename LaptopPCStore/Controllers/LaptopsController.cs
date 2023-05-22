@@ -26,6 +26,17 @@ namespace LaptopPCStore.Controllers
             return View(await _context.laptops.ToListAsync());
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Index(string SearchText)
+        {
+            var res = from x in _context.laptops select x;
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                res = res.Where(x => x.lap_name.Contains(SearchText));
+            }
+            return View(await res.AsNoTracking().ToListAsync());
+        }
+
         // GET: Laptops/Details/5
         public async Task<IActionResult> Details(int? id)
         {

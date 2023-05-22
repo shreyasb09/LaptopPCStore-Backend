@@ -5,7 +5,14 @@
 }
 
 <h1>Laptop Index</h1>
-
+<div class="text-center p-2">
+    <form asp-controller="Laptops" asp-action="Index" method="get">
+        <span style="padding-top:70px;" class="btn-group">
+            <input class="form-control mr-sm-2" name="SearchText" type="search" placeholder="Customer Name" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+        </span>
+    </form>
+</div>
 <p>
     <a asp-action="Create">Create New Laptop</a>
 </p>
