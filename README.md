@@ -74,6 +74,7 @@ To set up the project on your local machine, please follow these steps:
 
 ## License
 
-MIT 
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
 
 This project is built as part of satisfying VTU internship requirements. 18CSI85
