@@ -3,6 +3,14 @@
 @{
     ViewData["Title"] = "Create Invoice";
 }
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
 <section class="">
     <div class="container">
         <div class="row mb-5">
@@ -28,7 +36,7 @@
                                     <input required asp-for="inv_mail" type="email" class="form-control" placeholder="Invoice Mail ID" />
                                     <span asp-validation-for="inv_mail" class="text-danger"></span>
                                 </div>
-                                
+
 
                             </div>
                         </div>
@@ -48,11 +56,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            
-                                    <div class="col-lg-6 mb-3"><input class="form-control" asp-for="quantity" type="text" id="quantity" name="quantity" placeholder="Invoice Quantity" min="1" max="20" step="1" oninput="this.form.pur_quantity_range.value=this.value"></div>
-                                    <div class="col-lg-6 mb-3 d-xl-flex align-items-xl-center"><input class="form-range form-control" type="range" id="pur_quantity_range" name="pur_quantity_range" placeholder="Quantity" min="1" max="20" step="1" oninput="this.form.quantity.value=this.value" value="1"></div>
-                                    <span asp-validation-for="quantity" class="text-danger"></span>
-                                
+
+                            <div class="col-lg-6 mb-3"><input class="form-control" asp-for="quantity" type="text" id="quantity" name="quantity" placeholder="Invoice Quantity" min="1" max="20" step="1" oninput="this.form.pur_quantity_range.value=this.value"></div>
+                            <div class="col-lg-6 mb-3 d-xl-flex align-items-xl-center"><input class="form-range form-control" type="range" id="pur_quantity_range" name="pur_quantity_range" placeholder="Quantity" min="1" max="20" step="1" oninput="this.form.quantity.value=this.value" value="1"></div>
+                            <span asp-validation-for="quantity" class="text-danger"></span>
+
 
 
                         </div>
@@ -74,49 +82,49 @@
 </section>
 
 @*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="userID" class="control-label"></label>
-                <input asp-for="userID" class="form-control" />
-                <span asp-validation-for="userID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="lap_id" class="control-label"></label>
-                <select asp-for="lap_id" class ="form-control" asp-items="ViewBag.lap_id"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="quantity" class="control-label"></label>
-                <input min="1" asp-for="quantity" class="form-control" />
-                <span asp-validation-for="quantity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="inv_name" class="control-label"></label>
-                <input asp-for="inv_name" class="form-control" />
-                <span asp-validation-for="inv_name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="inv_phone" class="control-label"></label>
-                <input type="tel" asp-for="inv_phone" class="form-control" />
-                <span asp-validation-for="inv_phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="inv_mail" class="control-label"></label>
-                <input asp-for="inv_mail" class="form-control" />
-                <span asp-validation-for="inv_mail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="inv_address" class="control-label"></label>
-                <input asp-for="inv_address" class="form-control" />
-                <span asp-validation-for="inv_address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="userID" class="control-label"></label>
+                    <input asp-for="userID" class="form-control" />
+                    <span asp-validation-for="userID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="lap_id" class="control-label"></label>
+                    <select asp-for="lap_id" class ="form-control" asp-items="ViewBag.lap_id"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="quantity" class="control-label"></label>
+                    <input min="1" asp-for="quantity" class="form-control" />
+                    <span asp-validation-for="quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="inv_name" class="control-label"></label>
+                    <input asp-for="inv_name" class="form-control" />
+                    <span asp-validation-for="inv_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="inv_phone" class="control-label"></label>
+                    <input type="tel" asp-for="inv_phone" class="form-control" />
+                    <span asp-validation-for="inv_phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="inv_mail" class="control-label"></label>
+                    <input asp-for="inv_mail" class="form-control" />
+                    <span asp-validation-for="inv_mail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="inv_address" class="control-label"></label>
+                    <input asp-for="inv_address" class="form-control" />
+                    <span asp-validation-for="inv_address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>

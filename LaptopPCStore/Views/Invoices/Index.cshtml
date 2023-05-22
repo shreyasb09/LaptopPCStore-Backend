@@ -5,7 +5,14 @@
 }
 
 <h1>Invoice Index</h1>
-
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}
 <p>
     <a asp-action="Create">Create New Invoice</a>
 </p>
@@ -13,8 +20,8 @@
     <thead>
         <tr>
             @*<th>
-                @Html.DisplayNameFor(model => model.userID)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.userID)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.lap_id)
             </th>
@@ -37,35 +44,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.userID)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.fk6.lap_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.inv_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.inv_phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.inv_mail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.inv_address)
-            </td>
-            <td>
-                @*<a asp-action="Edit" asp-route-id="@item.invoice_id">Edit</a> |*@
-                <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.invoice_id">Details</a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.invoice_id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.userID)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.fk6.lap_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.inv_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.inv_phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.inv_mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.inv_address)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.invoice_id">Edit</a> |*@
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.invoice_id">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.invoice_id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

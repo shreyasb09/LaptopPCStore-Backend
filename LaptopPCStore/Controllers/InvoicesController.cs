@@ -68,6 +68,7 @@ namespace LaptopPCStore.Controllers
                     if (invoice.quantity > inventories.quantity) 
                     {
                         ViewData["lap_id"] = new SelectList(_context.laptops, "lap_id", "lap_name", invoice.lap_id);
+                        ViewBag.Message = "Unable to update, invoice quantity higher than present in the inventory";
                         return View(invoice);
                     }
                     else 
