@@ -3,24 +3,56 @@
 @inject UserManager<IdentityUser> UserManager
 
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="btn btn-danger shadow nav-link btn btn-link text-light">Logout</button>
-        </form>
-    </li>
-}
-else
-{
+    @if (SignInManager.IsSignedIn(User))
+    {
+            <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="nav-item d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center px-2">
+                <div class="nav-item dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Add New </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-area="" asp-controller="Laptops" asp-action="Create"> Add New Product</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Vendors" asp-action="Create"> Add New Vendor</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Create">Add New Purchase</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Invoices" asp-action="Create">Add New Invoice</a>
+
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item d-lg-flex d-xl-flex align-items-lg-center align-items-xl-center px-2">
+                <div class="nav-item dropdown">
+                    <a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Views </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" asp-area="" asp-controller="Laptops" asp-action="Index"> View Product</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Vendors" asp-action="Index"> View Vendor</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Purchases" asp-action="Index">View Purchase</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Invoices" asp-action="Index">View Invoice</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Inventories" asp-action="Index">View Inventory</a>
+
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Team">Our Team</a></li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="btn btn-danger shadow nav-link btn btn-link text-light">Logout</button>
+                </form>
+            </li>
+            }
+            else
+            {
+    <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+
+    <li class="nav-item d-lg-flex align-items-lg-center"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Team">Our Team</a></li>
+
     <li class="nav-item">
         <a class="btn btn-primary shadow nav-link text-light me-3" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
     <li class="nav-item">
         <a class="btn btn-primary shadow nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
-}
-</ul>
+
+            }
+        </ul>
